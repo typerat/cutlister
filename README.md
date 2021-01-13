@@ -4,13 +4,13 @@ Generate the most efficient cutlist - don't waste your precious materials.
 
 ## Usage
 
-Assume the following lengths and numbers of needed parts from 1000 mm stock.
+Assume the following lengths and numbers of needed parts to be cut from 1000 mm stock:
 
 | length | count |
 | ------ | ----- |
-| 200 mm | 8     |
+| 200 mm | 3     |
 | 280 mm | 2     |
-| 540 mm | 3     |
+| 540 mm | 1     |
 
 Enter the command as follows:
 
