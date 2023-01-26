@@ -75,17 +75,18 @@ func tryVariants(stockLength int, parts []int) [][][]int {
 		stock := []int{}
 		sum := 0
 		for _, p := range parts {
-			// if the part still fits, add it
-			if sum+p <= stockLength {
-				stock = append(stock, p)
-				sum += p
+			// if the part doesn't fit, start a new stock
+			if sum+p >= stockLength {
+				stocks = append(stocks, stock)
+				stock = []int{}
+				sum = 0
 			}
 
-			// if it doesn't start a new stock piece
-			stocks = append(stocks, stock)
-			stock = []int{}
-			sum = 0
+			// add the part to stock
+			stock = append(stock, p)
+			sum += p
 		}
+
 		// append the last stock piece - this won't be full
 		stocks = append(stocks, stock)
 
@@ -149,9 +150,9 @@ func printList(stockLength int, list [][]int) {
 		fmt.Println("stock", i+1)
 
 		offcut := stockLength
-		for j, p := range s {
+		for _, p := range s {
 			offcut -= p
-			fmt.Printf("  part %d   %d", j+1, p)
+			fmt.Printf("  %d", p)
 		}
 		fmt.Printf("\n  offcut   %d\n", offcut)
 	}
